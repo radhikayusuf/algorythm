@@ -12,7 +12,7 @@ body {
     top: 20%;
     margin: auto;
     width: 340px;
-    height: 445px;
+    height: 480px;
     border-radius: 0.35em;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -23,8 +23,20 @@ body {
     position: relative;
     top: 20%;
     margin: auto;
-    width: 340px;
-    height: 480px;
+    width: 480px;
+    height: 800px;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#container-sound {
+    background-color: #1D1F20;
+    position: relative;
+    top: 20%;
+    margin: auto;
+    width: 480px;
+    height: 500px;
     border-radius: 0.35em;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -54,6 +66,16 @@ body {
     margin-top: 15px;
 }
 
+
+.input-register {
+    margin: auto;
+    width: 360px;
+    border-radius: 4px;
+    background-color: #373b3d;
+    padding: 8px 0px;
+    margin-top: 15px;
+}
+
 .input-addon {
     float: left;
     background-color: #373b3d;
@@ -62,11 +84,32 @@ body {
     border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.input-addon-file {
+    margin-top: 4px;    
+    float: left;
+    background-color: #373b3d;
+    border: 1px solid #373b3d;
+    padding: 4px 8px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
 input[type=checkbox] {
     cursor: pointer;
 }
 
+input[type=file] {
+    width: 75%;
+    color: #949494;
+    margin: 0;
+    background-color: #373b3d;
+    border: 1px solid #373b3d;
+    padding: 6px 0px;
+    border-radius: 3px;
+}
+
 input[type=text] {
+    width: 75%;
     color: #949494;
     margin: 0;
     background-color: #373b3d;
@@ -80,6 +123,7 @@ input[type=text]:focus {
 }
 
 input[type=password] {
+    width: 75%;
     color: #949494;
     margin: 0;
     background-color: #373b3d;
@@ -93,6 +137,7 @@ input[type=password]:focus {
 }
 
 input[type=email] {
+    width: 75%;
     color: #949494;
     margin: 0;
     background-color: #373b3d;
@@ -169,7 +214,7 @@ input[type=submit] {
     margin: auto;
     padding: 16px 0;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 16px;
     width: 85%;
     border-top: 1px solid #C1C3C6;
 }

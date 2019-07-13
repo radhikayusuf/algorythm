@@ -8,9 +8,8 @@ window.onload = function(){
 }
 
 function test(file, position){    
-    if(audioArr[position] === undefined){                
-        audioArr[position] = new Audio('http://www.largesound.com/ashborytour/sound/'+file);        
-
+    if(audioArr[position] === undefined){                 
+        audioArr[position] = new Audio(file);                        
         pauseAll();
         audioArr[position].play();        
     } else {
@@ -22,6 +21,8 @@ function test(file, position){
         }        
     }
     // const musicUlr = $("#music-1").data("music");    
+
+    // 0 3 - 4 7 - 8 - 11
 }
 
 
