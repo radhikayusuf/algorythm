@@ -91,8 +91,8 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7 text-center" data-aos="fade-up" data-aos-delay="400">
-            <h1>Listen &mdash; On-Air Now</h1>
-            <p class="mb-4"><span class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></p>
+            <h1>Listen &mdash; the world sounds</h1>
+            <p class="mb-4"><span class="small">show how beautiful your voice to the world.</span></p>
         
             </div>
           </div>
