@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require_once 'Environment.php';
   require_once 'php/connection.php';
   require_once 'php/model/soundmodel.php';
   require_once 'php/model/usermodel.php';

@@ -4,6 +4,7 @@
 
     require_once '../connection.php';
     require_once '../model/registermodel.php';
+    require_once '../../Environment.php';
 
     $db = new Database();
     $registerModel = new RegisterModel($db);
@@ -29,15 +30,15 @@
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["imageprofile"]["tmp_name"]);
         if($check === false) {
-            $_SESSION['message'] = "File is not an image.";
-            header("location: http://192.168.64.2/algorythm/register.php");
+            $_SESSION['message'] = "File is not an image.";            
+            header("location: ". $HOST ."register.php");     
             exit;   
         }
     }
 
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {        
         $_SESSION['message'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        header("location: http://192.168.64.2/algorythm/register.php");
+        header("location: ". $HOST ."register.php");   
         exit;        
     }
     
@@ -50,25 +51,25 @@
         echo "The file ". $fileLocation . " has been uploaded.";
     } else {        
         $_SESSION['message'] = "Sorry, there was an error uploading your file.";
-        header("location: http://192.168.64.2/algorythm/register.php");
+        header("location: ". $HOST ."register.php");   
         exit;  
     }
 
     if (preg_match($pattern, $emailaddress) !== 1) {
         $_SESSION['message'] = "Invalid Email format";
-        header("location: http://192.168.64.2/algorythm/register.php");
+        header("location: ". $HOST ."register.php");   
         exit;
     }
 
     if($registerModel->checkUser($emailaddress) >0){
         $_SESSION['message'] = "Email already used";
-        header("location: http://192.168.64.2/algorythm/register.php");
+        header("location: ". $HOST ."register.php");   
         exit;
     }
 
     if (strlen($password) < 8 || strlen($password) > 12) {
         $_SESSION['message'] = "Password must be 8 - 12 characters";
-        header("location: http://192.168.64.2/algorythm/register.php");
+        header("location: ". $HOST ."register.php");   
         exit;
     }
 
@@ -76,10 +77,10 @@
     $result = $registerModel->addUser($fullname, $emailaddress, $password, $quotes, $job, 'images/'. $fileResultName);
 
     if($result){
-        header("location: http://192.168.64.2/algorythm/login.php");
+        header("location: ". $HOST ."login.php");   
     } else {
         $_SESSION['message'] = "Error while register user";
-        header("location: http://192.168.64.2/algorythm/register.php");
+        header("location: ". $HOST ."register.php");   
     }
     
 

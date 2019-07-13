@@ -4,6 +4,7 @@
 
     require_once '../connection.php';
     require_once '../model/loginmodel.php';
+    require_once '../../Environment.php';
 
 
     $db = new Database();
@@ -17,18 +18,18 @@
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
     if (preg_match($pattern, $emailaddress) !== 1) {
-        $_SESSION['message'] = "Invalid Email format";
-        header("location: http://192.168.64.2/algorythm/login.php");
+        $_SESSION['message'] = "Invalid Email format";        
+        header("location: ". $HOST ."login.php");        
         exit;
     }
 
     if (strlen($password) < 8 || strlen($password) > 12) {
         $_SESSION['message'] = "Password must be 8 - 12 characters";
-        header("location: http://192.168.64.2/algorythm/login.php");
+        header("location: ". $HOST ."login.php");     
         exit;
     }
 
     $_SESSION['user_data'] = $loginModel->doLogin($emailaddress, $password);
-    header("location: http://192.168.64.2/algorythm/index.php");
+    header("location: ". $HOST ."index.php");     
  
 ?>

@@ -1,8 +1,9 @@
 <?php
     session_start();
-    
-    if(isset($_SESSION['user_data'])) {        
-        header("location: http://192.168.64.2/algorythm/index.php");        
+    require_once "Environment.php";
+
+    if(isset($_SESSION['user_data'])) {            
+        header("location: ". $HOST ."index.php");   
         exit;
     }
 ?>

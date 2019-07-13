@@ -1,8 +1,9 @@
 <?php
+    require_once "Environment.php";
     session_start();    
     if(!isset($_SESSION['user_data'])) {
         $_SESSION['message'] = "Please login before add your sound to public";
-        header("location: http://192.168.64.2/algorythm/login.php");        
+        header("location: ". $HOST ."login.php");        
         exit;
     }
 

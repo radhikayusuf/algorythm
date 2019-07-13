@@ -4,6 +4,7 @@
 
     require_once '../connection.php';
     require_once '../model/soundmodel.php';
+    require_once '../../Environment.php';
 
     $db = new Database();
     $soundModel = new SoundModel($db);
@@ -27,14 +28,14 @@
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["imageCover"]["tmp_name"]);
         if($check === false) {
-            $_SESSION['message'] = "File is not an image.";
-            header("location: http://192.168.64.2/algorythm/addsound.php");
+            $_SESSION['message'] = "File is not an image.";            
+            header("location: ". $HOST ."addsound.php");   
             exit;   
         }
     }
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
         $_SESSION['message'] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        header("location: http://192.168.64.2/algorythm/register.php");
+        header("location: ". $HOST ."addsound.php");   
         exit;        
     }
     
@@ -47,7 +48,7 @@
         echo "The file ". $fileLocation . " has been uploaded.";
     } else {        
         $_SESSION['message'] = "Sorry, there was an error uploading your file.";
-        header("location: http://192.168.64.2/algorythm/addsound.php");
+        header("location: ". $HOST ."addsound.php");   
         exit;  
     }
     /** End of Uploading cover image */
@@ -67,7 +68,7 @@
     
     if($soundUImageTyoe != "mp3" && isset($_POST["submit"])) {
         $_SESSION['message'] = "Sorry, only MP3 file is allowed.";
-        header("location: http://192.168.64.2/algorythm/addsound.php");
+        header("location: ". $HOST ."addsound.php");   
         exit;        
     }
     
@@ -80,7 +81,7 @@
     } else {        
 
         $_SESSION['message'] = "Sorry, there was an error uploading your sound. " . $target_sound_file;
-        header("location: http://192.168.64.2/algorythm/addsound.php");
+        header("location: ". $HOST ."addsound.php");   
         exit;  
     }
 
@@ -90,10 +91,10 @@
     $result = $soundModel->addSound($soundName, $author, 'images/'. $fileResultImage, 'sounds/'. $fileResultSound, $_SESSION['user_data']['id_user']);
 
     if($result){
-        header("location: http://192.168.64.2/algorythm/index.php");
+        header("location: ". $HOST ."index.php");   
     } else {
         $_SESSION['message'] = "Error while posting sound";
-        header("location: http://192.168.64.2/algorythm/addsound.php");
+        header("location: ". $HOST ."addsound.php");   
     } 
 
 ?>
